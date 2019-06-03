@@ -72,12 +72,12 @@ String imgFileName: The name of the file that corresponds to the image that depi
 
 		}
 
-		StdOut.printf("%d\n", planets.length);
-		StdOut.printf("%.2e\n", radius);
-		for (int i = 0; i < planets.length; i++) {
+		StdOut.printf("%d\n", num);
+		StdOut.printf("%.2e\n", a);
+		for (int i = 0; i < num; i++) {
     		StdOut.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
-                  planets[i].xxPos, planets[i].yyPos, planets[i].xxVel,
-                  planets[i].yyVel, planets[i].mass, planets[i].imgFileName);   
+                  b[i].xxPos, b[i].yyPos, b[i].xxVel,
+                  b[i].yyVel, b[i].mass, b[i].imgFileName);   
 		}
 
 

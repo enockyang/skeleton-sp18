@@ -19,15 +19,15 @@ String imgFileName: The name of the file that corresponds to the image that depi
 		In in = new In(loc);
 		int num = in.readInt();
 		double radius = in.readDouble();
-        Planet[] planets = new Planet[5];  
-		for (int i = 0; i < 5; i++){
+        Planet[] planets = new Planet[num];  
+		for (int i = 0; i < num; i++){
 			double a = in.readDouble();
 			double b = in.readDouble();
 			double c = in.readDouble();
 			double d = in.readDouble();
 			double e = in.readDouble();
 			String f = in.readString();
-			planets[i] = new Planet(a,b,c,d,e,"./images/"+f);
+			planets[i] = new Planet(a,b,c,d,e,f);
 		}
 		return planets;
 
@@ -39,13 +39,14 @@ String imgFileName: The name of the file that corresponds to the image that depi
 		String fname = args[2];
 		double a  = readRadius(fname);
 		Planet[] b = readPlanets(fname);
+		int num = b.length;
 		double timestamp = 0;
 
 		StdDraw.enableDoubleBuffering();
 		
 		while (timestamp <= T){
-			double[] xForces = new double[5];
-		    double[] yForces = new double[5];
+			double[] xForces = new double[num];
+		    double[] yForces = new double[num];
 			StdDraw.setScale(-a, a);
 			StdDraw.clear();
 			StdDraw.picture(0, 0, "./images/starfield.jpg");

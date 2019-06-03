@@ -90,7 +90,7 @@ String imgFileName: The name of the file that corresponds to the image that depi
 	}
 
 	public void draw(){
-		StdDraw.picture(this.xxPos, this.yyPos, this.imgFileName);
+		StdDraw.picture(this.xxPos, this.yyPos, "./images/"+this.imgFileName);
 	}
 
 

@@ -47,13 +47,21 @@ String imgFileName: The name of the file that corresponds to the image that depi
 	}
 
 
+	public double calcForceExertedByX(Planet p){
+		return this.calcForceExertedBy(p)*(p.xxPos-this.xxPos)/this.calcDistance(p);
+	}
+
+	public double calcForceExertedByY(Planet p){
+		return this.calcForceExertedBy(p)*(p.yyPos-this.yyPos)/this.calcDistance(p);
+	}
+
 	public double calcNetForceExertedByX(Planet[] allPlanets){
 		double fx = 0;
  		for (Planet p : allPlanets){
 			if (this.equals(p)){
 				continue;
 			} else{
-				fx += this.calcForceExertedBy(p)*(p.xxPos-this.xxPos)/this.calcDistance(p);
+				fx += calcForceExertedByX(p);
 			}
 		}
 		return fx;
@@ -66,7 +74,7 @@ String imgFileName: The name of the file that corresponds to the image that depi
 			if (this.equals(p)){
 				continue;
 			} else{
-				fy += this.calcForceExertedBy(p)*(p.yyPos-this.yyPos)/this.calcDistance(p);
+				fy += calcForceExertedByY(p);
 			}
 		}
 		return fy;

@@ -13,7 +13,7 @@ String imgFileName: The name of the file that corresponds to the image that depi
     public double yyVel;
     public double mass;
     public String imgFileName;
-    public static final double g = 6.67e-11;
+    private static final double g = 6.67e-11;
 
 
 	public Planet(double xP, double yP, double xV, double yV, double m, String img){

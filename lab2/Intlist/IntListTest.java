@@ -22,10 +22,22 @@ public class IntListTest {
 
     @Test
     public void testdSquareList() {
-        IntList L = IntList.of(1, 2, 3);
+        IntList L = IntList.of(1, 2, 3); // new flavour
+//        IntList myList = new IntList(1, null);
+//        myList.rest = new IntList(2, null);
+//        myList.rest.rest = new IntList(3, null);
         IntList.dSquareList(L);
         assertEquals(IntList.of(1, 4, 9), L);
     }
+
+    @Test
+    public void testSquareListIterative(){
+        IntList L = IntList.of(5, 6, 7);
+        IntList L1 = IntList.squareListIterative(L);
+        assertEquals(IntList.of(25,36,49), L1);
+        assertEquals(IntList.of(5, 6, 7), L);
+    }
+
 
     /**
      * Do not use the new keyword in your tests. You can create

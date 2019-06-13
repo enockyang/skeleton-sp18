@@ -1,24 +1,24 @@
-public class ArrayDeque<type> {
+public class ArrayDeque<T> {
 
     private int size;
-    private type[] items;
+    private T[] items;
     private int pointerStart;
     private int pointerEnd;
 
 
     public ArrayDeque() {
         size = 0;
-        items = (type[]) new Object[8];
+        items = (T[]) new Object[8];
         pointerStart = 0;
         pointerEnd = 1;
     }
 
     /**
      * constant time
-     * Adds an item of type T to the front of the deque.
+     * Adds an item of T T to the front of the deque.
      */
     private void resizing() {
-        type[] bigOne = (type[]) new Object[items.length * 2];
+        T[] bigOne = (T[]) new Object[items.length * 2];
         System.arraycopy(items, (pointerStart + 1), bigOne, 1, (items.length - pointerStart - 1));
         System.arraycopy(items, 0, bigOne, (items.length - pointerStart), (pointerStart));
         pointerStart = 0;
@@ -26,7 +26,7 @@ public class ArrayDeque<type> {
         items = bigOne;
     }
 
-    public void addFirst(type T) {
+    public void addFirst(T T) {
         if (pointerStart == pointerEnd) {
             resizing();
         }
@@ -38,9 +38,9 @@ public class ArrayDeque<type> {
 
     /**
      * constant time
-     * Adds an item of type T to the back of the deque.
+     * Adds an item of T T to the back of the deque.
      */
-    public void addLast(type T) {
+    public void addLast(T T) {
         if (pointerStart == pointerEnd) {
             resizing();
         }
@@ -80,7 +80,7 @@ public class ArrayDeque<type> {
     }
 
     private void resizingShrink() {
-        type[] smallOne = (type []) new Object[items.length/2];
+        T[] smallOne = (T []) new Object[items.length/2];
         if (pointerStart <= pointerEnd){
             System.arraycopy(items,(pointerStart+1),smallOne,1,size);
         }
@@ -96,7 +96,7 @@ public class ArrayDeque<type> {
     /**
      * Removes and returns the item at the front of the deque. If no such item exists, returns null.
      */
-    public type removeFirst() {
+    public T removeFirst() {
         pointerStart = (pointerStart + 1) % items.length;
         size -= 1;
         if (size < (items.length / 2) - 1) {
@@ -109,7 +109,7 @@ public class ArrayDeque<type> {
     /**
      * Removes and returns the item at the back of the deque. If no such item exists, returns null.
      */
-    public type removeLast() {
+    public T removeLast() {
         pointerEnd = (pointerEnd + items.length - 1) % items.length;
         size -= 1;
         if (size < (items.length / 2) - 1) {
@@ -123,7 +123,7 @@ public class ArrayDeque<type> {
      * Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth. If no such item
      * exists, returns null. Must not alter the deque
      */
-    public type get(int index) {
+    public T get(int index) {
         if (index > size - 1) {
             return null;
         }
@@ -139,37 +139,36 @@ public class ArrayDeque<type> {
      * available at
      */
     public ArrayDeque(ArrayDeque other) {
-        items = (type[]) new Object[other.items.length];
+        items = (T[]) new Object[other.items.length];
         System.arraycopy(other.items, 0, items, 0, items.length);
         size = other.size;
         pointerStart = other.pointerStart;
         pointerEnd = other.pointerEnd;
     }
 
-    public static void main(String[] args) {
-
-        ArrayDeque yhr = new ArrayDeque();
-        for (int i = 0; i < 8; i++) {
-            yhr.addFirst(i);
-            yhr.addLast(i);
-
-        }
-        yhr.removeFirst();
-        yhr.printDeque();
-        yhr.removeLast();
-        yhr.printDeque();
-        yhr.removeLast();
-        yhr.removeLast();
-        yhr.removeLast();
-        yhr.removeLast();
-        yhr.removeLast();
-        yhr.removeLast();
-        yhr.removeLast();
-        yhr.removeLast();
-        System.out.println(yhr.get(2));
-    }
+//    public static void main(String[] args) {
+//
+//        ArrayDeque yhr = new ArrayDeque();
+//        for (int i = 0; i < 8; i++) {
+//            yhr.addFirst(i);
+//            yhr.addLast(i);
+//
+//        }
+//        yhr.removeFirst();
+//        yhr.printDeque();
+//        yhr.removeLast();
+//        yhr.printDeque();
+//        yhr.removeLast();
+//        yhr.removeLast();
+//        yhr.removeLast();
+//        yhr.removeLast();
+//        yhr.removeLast();
+//        yhr.removeLast();
+//        yhr.removeLast();
+//        yhr.removeLast();
+//        System.out.println(yhr.get(2));
+//    }
 }
-
 
 
 

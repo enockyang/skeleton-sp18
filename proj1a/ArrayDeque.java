@@ -138,13 +138,13 @@ public class ArrayDeque<T> {
      * should not change as well. (Edit 2/6/2018: A walkthrough that provides a solution for this copy constructor is
      * available at
      */
-    public ArrayDeque(ArrayDeque other) {
-        items = (T[]) new Object[other.items.length];
-        System.arraycopy(other.items, 0, items, 0, items.length);
-        size = other.size;
-        pointerStart = other.pointerStart;
-        pointerEnd = other.pointerEnd;
-    }
+//    public ArrayDeque(ArrayDeque other) {
+//        items = (T[]) new Object[other.items.length];
+//        System.arraycopy(other.items, 0, items, 0, items.length);
+//        size = other.size;
+//        pointerStart = other.pointerStart;
+//        pointerEnd = other.pointerEnd;
+//    }
 
 //    public static void main(String[] args) {
 //

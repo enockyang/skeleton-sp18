@@ -133,17 +133,17 @@ public class LinkedListDeque<T> {
      * Creates a deep copy of other.
      * Creating a deep copy means that you create an entirely new LinkedListDeque, with the exact same items as other. However, they should be different objects, i.e. if you change other, the new LinkedListDeque you created should not change as well. (Edit 2/6/2018: A walkthrough that provides a solution for this copy constructor is available at
      * */
-    public LinkedListDeque(LinkedListDeque other){
-        LinkedListDeque newOne = new LinkedListDeque();
-        Node copy = other.sentinelStart;
-        while(copy.next!= other.sentinelEnd){
-            copy = copy.next;
-            newOne.addFirst(new Node(copy.item,null,null));
-        }
-        this.sentinelStart = newOne.sentinelStart;
-        this.sentinelEnd = newOne.sentinelEnd;
-        this.size = newOne.size();
-
-    }
+//    public LinkedListDeque(LinkedListDeque other){
+//        LinkedListDeque newOne = new LinkedListDeque();
+//        Node copy = other.sentinelStart;
+//        while(copy.next!= other.sentinelEnd){
+//            copy = copy.next;
+//            newOne.addFirst(new Node(copy.item,null,null));
+//        }
+//        this.sentinelStart = newOne.sentinelStart;
+//        this.sentinelEnd = newOne.sentinelEnd;
+//        this.size = newOne.size();
+//
+//    }
 
 }

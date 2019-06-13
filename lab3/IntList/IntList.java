@@ -52,7 +52,7 @@ public class IntList {
             return null;
         }
         IntList res = new IntList(L.first * L.first, null);
-        IntList ptr = res;
+        IntList ptr = res; // ptr --> temp
         L = L.rest;
         while (L != null) {
             ptr.rest = new IntList(L.first * L.first, null);
@@ -82,17 +82,94 @@ public class IntList {
 
     public static IntList dcatenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+
+        /* iteration */
+        if (A == null){
+            return B;
+            //解决空集问题???
+        } else{
+            IntList temp = A;
+            while (temp.rest!= null){
+                temp = temp.rest;
+            }
+            temp.rest = B;
+        }
+        return A;
+
+//        /* recursion */
+//        if (A == null){
+//            return B;
+//        }
+//        else {
+//            A.rest = dcatenate (A.rest, B);
+//            return A;
+//        }
+
+
+
     }
 
     /**
      * Returns a list consisting of the elements of A followed by the
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
+    // however the IntList returned by IntList.catenate(A, B) has a pointer to B.
     public static IntList catenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+        /* recursion */
+        if (A == null){
+            return B;
+        }
+        else {
+            return new IntList(A.first, catenate(A.rest, B));
+        }
+
+//        /* iteration */
+//        IntList p = new IntList();
+//        IntList q = p;
+//        IntList a = A;
+//        IntList b = B;
+//        while (a.rest!= null){
+//            q.first = a.first;
+//            q.rest = new IntList();
+//            a = a.rest;
+//            q = q.rest;
+//        }
+//        q.first = a.first;
+//        q.rest = new IntList();
+//        q = q.rest;
+//
+//        while (b.rest!= null){
+//            q.first = b.first;
+//            q.rest = new IntList();
+//            b = b.rest;
+//            q = q.rest;
+//        }
+//        q.first = b.first;
+//        return p;
+
     }
+
+    /**
+     * Returns the reverse of the given IntList.
+     * This method is destructive. If given null
+     * as an input, returns null.
+     */
+    public static IntList reverse(IntList A) {
+//        /* iteration */
+//        if (A == null){
+//            return A;
+//        }
+//        IntList temp = A;
+//        while (temp.rest != null){
+//
+//        }
+//        // 不会写
+
+        /* recursion */
+        return null;
+
+    }
+
 
 
 

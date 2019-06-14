@@ -99,10 +99,11 @@ public class ArrayDeque<T> {
     public T removeFirst() {
         pointerStart = (pointerStart + 1) % items.length;
         size -= 1;
+        T temp = items[pointerStart];
         if (size < (items.length / 2) - 1) {
             resizingShrink();
         }
-        return items[pointerStart];
+        return temp;
 
     }
 
@@ -112,10 +113,11 @@ public class ArrayDeque<T> {
     public T removeLast() {
         pointerEnd = (pointerEnd + items.length - 1) % items.length;
         size -= 1;
+        T temp = items[pointerEnd];
         if (size < (items.length / 2) - 1) {
             resizingShrink();
         }
-        return items[pointerEnd];
+        return temp;
     }
 
     /**
@@ -138,23 +140,23 @@ public class ArrayDeque<T> {
      * should not change as well. (Edit 2/6/2018: A walkthrough that provides a solution for this copy constructor is
      * available at
      */
-//    public ArrayDeque(ArrayDeque other) {
-//        items = (T[]) new Object[other.items.length];
-//        System.arraycopy(other.items, 0, items, 0, items.length);
-//        size = other.size;
-//        pointerStart = other.pointerStart;
-//        pointerEnd = other.pointerEnd;
-//    }
+    public ArrayDeque(ArrayDeque other) {
+        items = (T[]) new Object[other.items.length];
+        System.arraycopy(other.items, 0, items, 0, items.length);
+        size = other.size;
+        pointerStart = other.pointerStart;
+        pointerEnd = other.pointerEnd;
+    }
 
 //    public static void main(String[] args) {
 //
 //        ArrayDeque yhr = new ArrayDeque();
-//        for (int i = 0; i < 8; i++) {
-//            yhr.addFirst(i);
-//            yhr.addLast(i);
 //
-//        }
-//        yhr.removeFirst();
+//        yhr.addFirst(0);
+//        yhr.addFirst(1);
+//        yhr.addFirst(2);
+//        System.out.println(yhr.removeFirst());
+//        System.out.println(yhr.removeFirst());
 //        yhr.printDeque();
 //        yhr.removeLast();
 //        yhr.printDeque();

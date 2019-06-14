@@ -69,7 +69,8 @@ public class ArrayDeque<T> {
     }
 
     /**
-     * Prints the items in the deque from first to last, separated by a space. Once all the items have been printed,
+     * Prints the items in the deque from first to last, separated by a space.
+     * Once all the items have been printed,
      * print out a new line.
      */
     public void printDeque() {
@@ -81,15 +82,15 @@ public class ArrayDeque<T> {
 
     private void resizingShrink() {
         T[] smallOne = (T []) new Object[items.length/2];
-        if (pointerStart <= pointerEnd){
-            System.arraycopy(items,(pointerStart+1),smallOne,1,size);
+        if (pointerStart <= pointerEnd) {
+            System.arraycopy(items, (pointerStart + 1), smallOne, 1, size);
         }
         else{
-            System.arraycopy(items,(pointerStart+1),smallOne,1,(items.length-pointerStart-1));
-            System.arraycopy(items,0,smallOne,(items.length-pointerStart),(pointerEnd));
+            System.arraycopy(items, (pointerStart+1), smallOne, 1, (items.length-pointerStart-1));
+            System.arraycopy(items, 0, smallOne, (items.length-pointerStart), (pointerEnd));
         }
         pointerStart = 0;
-        pointerEnd = size+1;
+        pointerEnd = size + 1;
         items = smallOne;
     }
 
@@ -114,7 +115,7 @@ public class ArrayDeque<T> {
      * Removes and returns the item at the back of the deque. If no such item exists, returns null.
      */
     public T removeLast() {
-        if (size == 0){
+        if (size == 0) {
             return null;
         }
         pointerEnd = (pointerEnd + items.length - 1) % items.length;

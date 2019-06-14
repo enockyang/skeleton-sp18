@@ -1,10 +1,10 @@
 public class LinkedListDeque<T> {
 
     /** help function */
-    private class Node{
-        public T item;
-        public Node next;
-        public Node last;
+    private class Node {
+        private T item;
+        private Node next;
+        private Node last;
 
         public Node(T i, Node n, Node m){
             item = i;

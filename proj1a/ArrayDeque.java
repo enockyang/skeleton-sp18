@@ -84,10 +84,9 @@ public class ArrayDeque<T> {
         T[] smallOne = (T []) new Object[items.length/2];
         if (pointerStart <= pointerEnd) {
             System.arraycopy(items, (pointerStart + 1), smallOne, 1, size);
-        }
-        else{
-            System.arraycopy(items, (pointerStart+1), smallOne, 1, (items.length-pointerStart-1));
-            System.arraycopy(items, 0, smallOne, (items.length-pointerStart), (pointerEnd));
+        } else {
+            System.arraycopy(items, (pointerStart + 1), smallOne, 1, (items.length - pointerStart - 1));
+            System.arraycopy(items, 0, smallOne, (items.length - pointerStart), (pointerEnd));
         }
         pointerStart = 0;
         pointerEnd = size + 1;
@@ -129,8 +128,8 @@ public class ArrayDeque<T> {
 
     /**
      * iteration
-     * Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth. If no such item
-     * exists, returns null. Must not alter the deque
+     * Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth.
+     * If no such item exists, returns null. Must not alter the deque
      */
     public T get(int index) {
         if (index > size - 1) {
@@ -142,10 +141,10 @@ public class ArrayDeque<T> {
 
     /**
      * Creates a deep copy of other.
-     * Creating a deep copy means that you create an entirely new LinkedListDeque, with the exact same items as other
-     * . However, they should be different objects, i.e. if you change other, the new LinkedListDeque you created
-     * should not change as well. (Edit 2/6/2018: A walkthrough that provides a solution for this copy constructor is
-     * available at
+     * Creating a deep copy means that you create an entirely new LinkedListDeque,
+     * with the exact same items as other.
+     * However, they should be different objects,
+     * i.e. if you change other, the new LinkedListDeque you created should not change as well.
      */
 //    public ArrayDeque(ArrayDeque other) {
 //        items = (T[]) new Object[other.items.length];

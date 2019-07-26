@@ -134,7 +134,8 @@ public class LinkedListDeque<T> {
 
     /**
      * Creates a deep copy of other.
-     * Creating a deep copy means that you create an entirely new LinkedListDeque, with the exact same items as other.
+     * Creating a deep copy means that you create an entirely new LinkedListDeque, 
+     *with the exact same items as other.
      * However, they should be different objects,
      * i.e. if you change other, the new LinkedListDeque you created should not change as well.*/
 //    public LinkedListDeque(LinkedListDeque other){

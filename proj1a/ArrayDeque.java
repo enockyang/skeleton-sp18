@@ -81,7 +81,7 @@ public class ArrayDeque<T> {
     }
 
     private void resizingShrink() {
-        T[] smallOne = (T []) new Object[items.length/2];
+        T[] smallOne = (T []) new Object[(items.length/2)];
         if (pointerStart <= pointerEnd) {
             System.arraycopy(items, (pointerStart + 1), smallOne, 1, size);
         } else {

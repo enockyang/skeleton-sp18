@@ -47,7 +47,7 @@ public class LinkedListDeque<T> {
 
     /** Returns true if deque is empty, false otherwise.*/
     public boolean isEmpty() {
-        if (size==0) {
+        if (size == 0) {
             return true;
         }
         return false;
@@ -61,7 +61,8 @@ public class LinkedListDeque<T> {
 
     }
 
-    /** Prints the items in the deque from first to last, separated by a space. Once all the items have been printed, print out a new line.*/
+    /** Prints the items in the deque from first to last, separated by a space
+     * Once all the items have been printed, print out a new line.*/
     public void printDeque() {
         Node temp = sentinelStart;
         if (temp.next != sentinelEnd) {
@@ -71,7 +72,8 @@ public class LinkedListDeque<T> {
         System.out.println();
     }
 
-    /** Removes and returns the item at the front of the deque. If no such item exists, returns null. */
+    /** Removes and returns the item at the front of the deque
+     * If no such item exists, returns null. */
     public T removeFirst() {
         if (size == 0) {
             return null;
@@ -84,8 +86,9 @@ public class LinkedListDeque<T> {
 
     }
 
-    /** Removes and returns the item at the back of the deque. If no such item exists, returns null. */
-    public T removeLast(){
+    /** Removes and returns the item at the back of the deque
+     * If no such item exists, returns null. */
+    public T removeLast() {
         if (size == 0) {
             return null;
         }
@@ -97,7 +100,8 @@ public class LinkedListDeque<T> {
     }
 
     /** iteration
-     * Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth. If no such item exists, returns null. Must not alter the deque
+     * Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth
+     * If no such item exists, returns null. Must not alter the deque
      * */
     public T get(int index) {
         if (index > size - 1) {
@@ -117,22 +121,22 @@ public class LinkedListDeque<T> {
         if (index > size - 1) {
             return null;
         }
-            return helper(sentinelStart, index);
+        return helper(sentinelStart, index);
     }
 
-    private T helper(Node temp,int index) {
+    private T helper(Node temp, int index) {
         if (index == 0) {
             return temp.next.item;
-        }
-        else{
-            return helper(temp.next, index-1);
+        } else {
+            return helper(temp.next, index - 1);
         }
     }
 
     /**
      * Creates a deep copy of other.
-     * Creating a deep copy means that you create an entirely new LinkedListDeque, with the exact same items as other. However, they should be different objects, i.e. if you change other, the new LinkedListDeque you created should not change as well. (Edit 2/6/2018: A walkthrough that provides a solution for this copy constructor is available at
-     * */
+     * Creating a deep copy means that you create an entirely new LinkedListDeque, with the exact same items as other.
+     * However, they should be different objects,
+     * i.e. if you change other, the new LinkedListDeque you created should not change as well.*/
 //    public LinkedListDeque(LinkedListDeque other){
 //        LinkedListDeque newOne = new LinkedListDeque();
 //        Node copy = other.sentinelStart;

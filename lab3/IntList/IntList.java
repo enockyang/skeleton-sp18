@@ -154,19 +154,37 @@ public class IntList {
      * This method is destructive. If given null
      * as an input, returns null.
      */
-    public static IntList reverse(IntList A) {
-//        /* iteration */
-//        if (A == null){
-//            return A;
-//        }
-//        IntList temp = A;
-//        while (temp.rest != null){
-//
-//        }
-//        // 不会写
+    private static IntList helper(IntList A){
+        IntList R, L1;
+        for (R = null; A != null; A = L1) {
+            L1 = A.rest;
+            A.rest = R;
+            R = A;
+        }
+        return R;
+    }
 
-        /* recursion */
-        return null;
+    public static IntList reverse(IntList A) {
+        /* Destructive, copypasta */
+        if (A == null){
+            return A;
+        }
+        else {
+            IntList R = IntList.catenate(A, null);
+            R = IntList.helper(R);
+            A.first = R.first;
+            A.rest = R.rest;
+            return A;
+        }
+
+        /* Non-destructive */
+//        IntList result = IntList.of();
+//        while( A != null ) {
+//            result = new IntList(A.first, result);
+//            A = A.rest;
+//        }
+//        return result;
+
 
     }
 
